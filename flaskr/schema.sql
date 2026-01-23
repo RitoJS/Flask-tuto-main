@@ -1,5 +1,7 @@
 DROP TABLE IF EXISTS user;
 DROP TABLE IF EXISTS post;
+DROP TABLE IF EXISTS books;
+DROP TABLE IF EXISTS author;
 
 CREATE TABLE user (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -14,4 +16,24 @@ CREATE TABLE post (
   title TEXT NOT NULL,
   body TEXT NOT NULL,
   FOREIGN KEY (author_id) REFERENCES user (id)
+);
+
+CREATE TABLE books (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  author_id INTEGER NOT NULL,
+  created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  title TEXT NOT NULL,
+  description TEXT NOT NULL,
+  FOREIGN KEY (author_id) REFERENCES author (id)
+);
+
+CREATE TABLE author (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  author_id INTEGER NOT NULL,
+  username TEXT UNIQUE NOT NULL,
+  password TEXT NOT NULL,
+  about TEXT NOT NULL,
+  FOREIGN KEY (author_id) REFERENCES user (id),
+  FOREIGN KEY (username) REFERENCES user (username),
+  FOREIGN KEY (password) REFERENCES user (password)
 );

@@ -33,6 +33,12 @@ def create_app(test_config=None):
 
     from . import auth
     app.register_blueprint(auth.bp)
+    
+    from . import books
+    app.register_blueprint(books.bp)
+
+    from . import author
+    app.register_blueprint(author.bp)
 
     from . import blog
     app.register_blueprint(blog.bp)

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{ author['username'] }'profil}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <section>
+        <h2>Books list</h2>
+        <div>
+            {% for book in books %}
+            <article class="post">
+                <header>
+                    <div>
+                    <h1>{{ book['title'] }}</h1>
+                    <div class="about">by {{ book['username'] }} on {{ book['created'].strftime('%Y-%m-%d') }}</div>
+                    </div>
+                    {% if g.user['id'] == book['author_id'] %}
+                    <a class="action" href="{{ url_for('books.update', id=book['id']) }}">Edit</a>
+                    {% endif %}
+                </header>
+                <p class="body">{{ book['description'] }}</p>
+                </article>
+                {% if not loop.last %}
+                <hr>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+    <aside>
+        <h2>About {{ author['username'] }} </h2>
+        <p>{{ author['about'] }}</p>
+    </aside>
+{% endblock %}
