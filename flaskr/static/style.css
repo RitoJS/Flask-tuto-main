@@ -53,6 +53,45 @@ nav ul li a, nav ul li span, header .action {
   display: block;
   padding: 0.5rem;
 }
+.flex {
+  display: flex;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.w-70 {
+  width: 70%;
+}
+
+.w-30 {
+  width: 30%
+}
+
+.m-5 {
+  margin: 5px;
+}
+.mt-5 {
+  margin-top: 5px;
+}
+
+.p-5 {
+  padding: 5px;
+}
+
+.border-hash {
+  border: 1px solid black;
+  border-style: dashed;
+}
+
+.underline {
+  text-decoration: underline;
+}
 
 .content {
   padding: 0 1rem 1rem;

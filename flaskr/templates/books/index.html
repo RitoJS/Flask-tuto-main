@@ -13,7 +13,7 @@
       <header>
         <div>
           <h1>{{ book['title'] }}</h1>
-          <div class="about">by {{ book['username'] }} on {{ book['created'].strftime('%Y-%m-%d') }}</div>
+          <div class="about">by <a class="action"  href="{{ url_for('author.index', id=book['author_id']) }}" target="_blank"> {{ book['username'] }} </a> on {{ book['created'].strftime('%Y-%m-%d') }}</div>
         </div>
         {% if g.user['id'] == book['author_id'] %}
           <a class="action" href="{{ url_for('books.update', id=book['id']) }}">Edit</a>
