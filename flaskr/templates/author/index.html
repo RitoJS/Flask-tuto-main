@@ -29,7 +29,7 @@
     </section>
     <aside class="w-30 border-hash m-5">
         <h2 class="text-center">About {{ author['username'] }} </h2>
-        <p class="p-5">{{ author['about'] }}</p>
+        <p class="p-5 profile-description">{{ author['about'] }}</p>
         {% if g.user['id'] == author['author_id']%}
         <p class="action text-center pointer mt-5 underline">Edit my description</p>
         {% endif %}

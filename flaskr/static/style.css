@@ -93,6 +93,13 @@ nav ul li a, nav ul li span, header .action {
   text-decoration: underline;
 }
 
+.profile-description {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 150px;
+  position: sticky;
+}
+
 .content {
   padding: 0 1rem 1rem;
 }
