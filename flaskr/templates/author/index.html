@@ -31,7 +31,9 @@
         <h2 class="text-center">About {{ author['username'] }} </h2>
         <p class="p-5 profile-description">{{ author['about'] }}</p>
         {% if g.user['id'] == author['author_id']%}
-        <p class="action text-center pointer mt-5 underline">Edit my description</p>
+        <p class="action text-center pointer mt-5 underline">
+            <a class="action" href="{{ url_for('author.update', id=author['author_id']) }}">Edit my description</a>
+        </p>
         {% endif %}
     </aside>
 </div>
