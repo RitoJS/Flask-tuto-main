@@ -5,9 +5,9 @@ from flask import (
 from flaskr.auth import login_required
 from flaskr.db import get_db
 
-bp = Blueprint('author', __name__)
+bp = Blueprint('author', __name__, url_prefix='/author')
 
-@bp.route('/author/<int:id>')
+@bp.route('/<int:id>')
 def index(id):
     db = get_db()
     author = db.execute(
@@ -31,7 +31,7 @@ def get_author(id, check_author=True):
 
     return author
 
-@bp.route('/author/<int:id>/update', methods=('GET', 'POST'))
+@bp.route('<int:id>/update', methods=('GET', 'POST'))
 @login_required
 def update(id):
     db = get_db()
