@@ -64,9 +64,16 @@ nav ul li a, nav ul li span, header .action {
 .text-center {
   text-align: center;
 }
+.text-right {
+  text-align: right;
+}
 
 .pointer {
   cursor: pointer;
+}
+
+.w-100 {
+  width: 100%;
 }
 
 .w-70 {

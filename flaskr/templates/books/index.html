@@ -12,7 +12,9 @@
     <article class="post">
       <header>
         <div>
-          <h1>{{ book['title'] }}</h1>
+          <h1 class="pointer">
+            <a href="{{ url_for('books.book', id=book['id']) }}">{{ book['title'] }}</a>
+          </h1>
           <div class="about">by <a class="inline"  href="{{ url_for('author.index', id=book['author_id']) }}" > {{ book['username'] }} </a> on {{ book['created'].strftime('%Y-%m-%d') }}</div>
         </div>
         {% if g.user['id'] == book['author_id'] %}

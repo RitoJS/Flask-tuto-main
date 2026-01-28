@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1 class="text-center">{% block title %}"{{ book['title'] }}"{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<nav>
+    <p class="text-right w-100">
+        Created by <a class="inline" href="{{ url_for('author.index', id=book['author_id']) }}">{{ author['username'] }}</a> 
+        {% if g.user['id'] == author['author_id']%}<a class="inline" href="{{ url_for('books.update', id=book['id']) }}">Edit my book</a>{% endif %}
+    </p>
+</nav>
+<article>
+    <h2 class="text-center"> About {{ book['title']}} </h2>
+    <div class="flex">
+        <section class="w-70">
+            <p class="text-center">
+                {{ book['description'] }}
+            </p>
+        </section>
+        <aside class="w-30 border-hash m-5">
+            <h2 class="text-center">About {{ author['username'] }} </h2>
+            <p class="p-5 profile-description">{{ author['about'] }}</p>
+            {% if g.user['id'] == author['author_id']%}
+            <p class="action text-center pointer mt-5 underline">
+                <a class="action" href="{{ url_for('author.update', id=author['author_id']) }}">Edit my description</a>
+            </p>
+            {% endif %}
+        </aside>
+    </div>
+</article>
+  
+{% endblock %}
